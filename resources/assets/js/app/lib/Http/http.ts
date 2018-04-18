@@ -44,9 +44,7 @@ export default class Http {
                     }
                 }
             }
-            let fetchUrl = url.indexOf('//') > -1
-                ? url
-                : process.env.REACT_APP_API_URL + url;
+            let fetchUrl = url;
             let args = {
                 headers: headers,
                 method: method,

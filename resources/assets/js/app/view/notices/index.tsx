@@ -12,10 +12,10 @@ export interface State {}
 export default class Notices extends Component<Props, State> {
     render() {
         return (
-            <Container fluid>
+            <Container fluid style={{marginTop: 20, marginBottom: 20}}>
                 <Header>Notices SPA</Header>
                 <NewNotice onSave={this.props.onSave} />
-                <NoticeList notices={this.props.notices} />
+                <NoticeList notices={this.props.notices} key="notice_list"/>
             </Container>
         )
     }

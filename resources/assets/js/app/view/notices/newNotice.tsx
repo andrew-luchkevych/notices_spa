@@ -10,11 +10,14 @@ export interface State {
 }
 export default class NewNotice extends Component < Props,
 State > {
+    componentWillMount() {
+        this.setState({notice: ''});
+    }
     save = () => {
         this
             .props
             .onSave(this.state.notice);
-        this.setState({notice: ''});
+        this.setState({notice: ''})
     }
     render() {
         return (
@@ -23,11 +26,11 @@ State > {
                     <Form.Group>
                         <Form.Input
                             placeholder='Enter notice'
+                            value={this.state.notice}
                             onChange={evt => this.setState({notice: evt.currentTarget.value})}
-                            style={{
-                            width: 300
-                        }}/>
-                        <Form.Button onClick={this.save}>Add</Form.Button>
+                            width={13}
+                        />
+                        <Form.Button fluid onClick={this.save}>Add</Form.Button>
                     </Form.Group>
                 </Form>
             </Grid.Column>

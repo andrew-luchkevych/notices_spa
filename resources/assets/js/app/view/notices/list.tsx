@@ -12,15 +12,19 @@ export default class NoticesList extends Component < Props, State > {
         return this
             .props
             .notices
-            .map(i => (
-                <List.Item key={i.id}>
+            .sort((a, b) => (b.id - a.id))
+            .map(notice => (
+                <List.Item key={notice.id} style={{padding: 20}}>
                     <List.Content>
-                        <List.Header as='h5'>Rachel</List.Header>
+                        <List.Header as='h5'>{notice.created_at}</List.Header>
+                        <List.Description style={{textAlign: 'left'}}>
+                            {notice.text}    
+                        </List.Description>
                     </List.Content>
                 </List.Item>
             ));
     }
-    render() {
+    render() {        
         return (
             <List>
                 {this.renderListItems()}
